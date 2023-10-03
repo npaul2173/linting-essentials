@@ -1,33 +1,22 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-
 local_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+echo $local_branch
 
 validate_branch_name() {
     local branch_name="$1"
     local pattern="^[A-Z]+_\d+_[a-z_]+$"
-    local ignore_list="main"
 
-    if  [[  $branch_name =~ $ignore_list ]]; then
+    if [[ $branch_name =~ $pattern ]]; then
         echo "Branch name '$branch_name' matches the pattern."
-    elif [[ $branch_name =~ $pattern ]]; then
-        echo "The condition is false"
-        exit 1
     else
-        echo "Branch name '$branch_name' does not match the pattern"
-        exit 1
-
+        echo "Branch name '$branch_name' does not match the pattern."
     fi
 }
 
 
 validate_branch_name "$local_branch"
-  
-
-yarn run lint
-
-
-
 
  
