@@ -2,12 +2,16 @@
 
 1. Create project with typescript
 
-<br/><br/> 2. npm init @eslint/config
+<br/><br/>
 
-1.  choose broswer for running mode.
-2.  json file for eslint config file creation.
-    <br/><br/>
-3.  Add this to the scripts in package.json and test using `yarn run lint`
+2. npm init @eslint/config
+
+   1. choose broswer for running mode.
+   2. json file for eslint config file creation.
+
+<br/><br/>
+
+3. Add this to the scripts in package.json and test using `yarn run lint`
 
 ```
     "lint": "eslint ./src/**"
@@ -36,8 +40,10 @@ yarn add --dev  eslint-config-prettier
 ```
 
 Please check this as [reference](https://prettier.io/docs/en/integrating-with-linters.html)
+<br/><br/>
 
 6. Add "prettier" inside the eslint config file. Make sure to add it to the end of the extends array list.
+   <br/><br/>
 
 7. Create a .prettierrc.json file at the root of the project and add basic config's like
 
@@ -64,6 +70,8 @@ and update the eslint config like this.
 }
 ```
 
+<br/><br/>
+
 9. Add these two under scripts for testing purposes.
    Once we run yarn run format. It will write through all the files under src format it according to prettierrc.json and save all files.
 
@@ -84,3 +92,23 @@ index.css
 ```
 
 11. Also we have a [prettierignore](https://prettier.io/docs/en/ignore.html) file that can be used if we want to ignore linting and prettier for a specific file.
+
+---
+
+12. Now we need to add [Husky](https://typicode.github.io/husky/getting-started.html). This is going to be useful for handling every git hook possible.
+    This command below will do every thing required to setup husky in the project.
+
+```
+npx husky-init
+
+yarn install
+```
+
+13. Open up pre-commit hook bash file which you see is auto created. Remove the default command npm test and add -> `yarn run lint`
+    Now if you try to add a commit, it will fail because of linting reasons.
+
+14. Now after that we will add [lint-staged](https://github.com/okonet/lint-staged). This script will run ESLint on all of the TypeScript and TSX files in the src directory before they are staged for commit. Only the files that are staged will be checked and not the other files.
+
+```
+yarn add --dev  lint-staged
+```
