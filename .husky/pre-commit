@@ -2,6 +2,34 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 
+# Define ANSI color codes
+RED='\033[0;31m'
+ORANGE='\033[0;33m' # Orange color
+BLUE='\033[0;36m'  # Blue color
+NC='\033[0m'        # No color (reset)
+
+
+reset='\033[0m'  # Reset text color to default
+banner_text="Branch name convetion check"
+
+ 
+# Create the banner using ASCII art
+banner() {
+    echo  "" 
+    echo "${BLUE}  _______________________________________"
+    echo "${BLUE} |                                       |" 
+    echo "${BLUE} |      $banner_text      |" 
+    echo "${BLUE}  _______________________________________"
+    echo "" 
+}
+
+# Display the banner
+banner
+ 
+
+echo  "\n${NC}" 
+
+
 local_branch="$(git rev-parse --abbrev-ref HEAD)"
 
 validate_branch_name() {
@@ -10,17 +38,17 @@ validate_branch_name() {
     local ignore_list="main"
 
     if  [[  $branch_name =~ $ignore_list ]]; then
-        echo "Branch name '$branch_name' matches the pattern."
+        echo -e "Branch name ${BLUE} '$branch_name'${NC} matches the pattern. \n\n" 
     elif [[ $branch_name =~ $pattern ]]; then
-        echo "The condition is false"
+        echo -e "${RED} Error : ${NC}  The condition is false  ${BLUE} \n\n"
         exit 1
     else
-        echo "Branch name '$branch_name' does not match the pattern"
+        echo -e " ${RED} Error : ${NC}  Branch name ${BLUE} '$branch_name' ${NC} does not match the pattern \n\n"
         exit 1
 
     fi
 }
-
+echo  "\n${NC}" 
 
 validate_branch_name "$local_branch"
   
