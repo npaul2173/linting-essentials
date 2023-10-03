@@ -1,11 +1,6 @@
 import React from "react";
 
-for (let index = 0; index < 5; index++) {
-  const element = index;
-  console.log(element);
-}
-
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <header>
@@ -23,6 +18,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;

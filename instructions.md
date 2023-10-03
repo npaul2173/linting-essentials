@@ -112,3 +112,19 @@ yarn install
 ```
 yarn add --dev  lint-staged
 ```
+
+This lint-staged is under progress.
+
+15. We can now add [commitlint](https://commitlint.js.org/#/) which helps the team follow a commit convention.
+
+```
+yarn add --dev @commitlint/cli @commitlint/config-conventional
+```
+
+We will use [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/) and extend a few settings to feed our needs. So we will update the rules.
+
+enter this command on terminal to create commit-msg hook
+
+```
+npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
+```

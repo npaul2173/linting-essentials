@@ -49,10 +49,12 @@
     ]
   },
   "lint-staged": {
-    "*.{ts, tsx}": "eslint",
+    "src/**/*.{ts, tsx}": "eslint",
     "*.{ts, tsx, json}": "prettier --write"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.2",
+    "@commitlint/config-conventional": "^17.7.0",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^9.0.0",
