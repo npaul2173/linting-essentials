@@ -7,6 +7,7 @@ RED='\033[0;31m'
 ORANGE='\033[0;33m' # Orange color
 BLUE='\033[0;36m'  # Blue color
 NC='\033[0m'        # No color (reset)
+GREEN='\033[0;32m'
 
 
 reset='\033[0m'  # Reset text color to default
@@ -38,10 +39,10 @@ validate_branch_name() {
     local ignore_list="main"
 
      if [[ $branch_name == "main"  || $branch_name == "qa" || $branch_name == "uat" || $branch_name == "dev" ]]; then
-        echo -e "Branch name ${BLUE} '$branch_name'${NC} matches the pattern. \n\n" 
+        echo -e "${GREEN} Success: ${NC}  Branch name ${BLUE} '$branch_name'${NC} matches the pattern. \n\n" 
     elif [[ $branch_name =~ $pattern ]]; then
-        echo -e "${RED} Error : ${NC}  The condition is false  ${BLUE} \n\n"
-        exit 1
+        echo -e "${GREEN} Success: ${NC}  The condition is false  ${BLUE} \n\n"
+   
     else
         echo -e " ${RED} Error : ${NC}  Branch name ${BLUE} '$branch_name' ${NC} does not match the pattern \n\n"
         exit 1
