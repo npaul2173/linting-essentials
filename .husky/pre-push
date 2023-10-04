@@ -34,13 +34,17 @@ local_branch="$(git rev-parse --abbrev-ref HEAD)"
 
 validate_branch_name() {
     local branch_name="$1"
-    local pattern="^[A-Z]+_\d+_[a-z_]+$" 
+    # local pattern="^[A-Z]+_\d+_[a-z_]+$"
+    local pattern="^[a-z_]+$"
+    local ignore_list="main uat"  
 
-    if [[ $branch_name == "main"  || $branch_name == "qa" || $branch_name == "uat" || $branch_name == "dev" ]]; then
-        echo -e "Branch name ${BLUE} '$branch_name'${NC} matches the pattern. \n\n" 
+
+     if [[ $branch_name == "main"  || $branch_name == "qa" || $branch_name == "uat" || $branch_name == "dev" ]]; then
+        echo -e "${GREEN} Success: ${NC}  Branch name ${BLUE} '$branch_name'${NC} matches the pattern. \n\n" 
+        # exit 1
     elif [[ $branch_name =~ $pattern ]]; then
-        echo -e "${RED} Error : ${NC}  The condition is false  ${BLUE} \n\n"
-        exit 1
+        echo -e "${GREEN} Success: ${NC}   Branch name ${BLUE} '$branch_name'${NC} matches the pattern. \n\n" 
+        # exit 1
     else
         echo -e " ${RED} Error : ${NC}  Branch name ${BLUE} '$branch_name' ${NC} does not match the pattern \n\n"
         exit 1
