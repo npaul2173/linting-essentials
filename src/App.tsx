@@ -1,6 +1,16 @@
 import React from "react";
 
-const App: React.FC = () => {
+interface User {
+  name: string;
+}
+
+const userData: User = { name: "asdsa" };
+console.log({ userData });
+
+const UPPER_CASE = 24;
+console.log(UPPER_CASE);
+
+function App() {
   return (
     <div>
       <header>
@@ -18,6 +28,6 @@ const App: React.FC = () => {
       </header>
     </div>
   );
-};
+}
 
 export default App;
