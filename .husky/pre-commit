@@ -41,8 +41,6 @@ validate_branch_name() {
     local ignore_list="main" 
       your_string_variable="login_module"
 
-#       regex_pattern="^[a-z_]+$"
-# echo "String with special characters: '$your_string_variable'"
 
      if [[ $branch_name == "main"  || $branch_name == "qa" || $branch_name == "uat" || $branch_name == "dev" ]]; then
         echo -e "${GREEN} Success: ${NC}  Branch name ${BLUE} '$branch_name'${NC} matches the pattern. \n\n" 
@@ -55,22 +53,7 @@ validate_branch_name() {
         exit 1
 
     fi
-    # if [[ $your_string_variable =~ $regex_pattern ]]; then
-    #       echo "The variable contains '3'."
-    #       exit 1
-    # else
-    #     echo "The variable does not contain '3'."
-    #     exit 1
-    # fi
-    # if [[ $numvar == $ignore_list ]]; then
-    #     echo "Branch name '$branch_name' is in the ignore list."
-    # elif [[ $branch_name =~ $pattern ]]; then
-    #     echo "Branch name '$branch_name' matches the pattern."
-    # else
-    #     echo "Error: Branch name '$branch_name' does not match the pattern."
-    #     exit 1
-    # fi
-
+    
 
    
 }
