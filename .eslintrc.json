@@ -15,6 +15,9 @@
   "plugins": ["react", "no-loops", "prettier"],
   "rules": {
     "no-var": "error",
+    "prefer-const": [2, { "destructuring": "all" }],
+    "no-new-symbol": 2,
+    "no-const-assign": 0,
     "no-loops/no-loops": 2,
     "quotes": ["error", "double"],
     "prettier/prettier": "error",

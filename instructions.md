@@ -128,3 +128,9 @@ enter this command on terminal to create commit-msg hook
 ```
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
+
+Also add a config file
+
+```
+echo "module.exports = { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+```

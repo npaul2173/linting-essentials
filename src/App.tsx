@@ -2,13 +2,13 @@ import React from "react";
 
 interface User {
   name: string;
+  age: number;
 }
 
-const userData: User = { name: "asdsa" };
+const userData: User = { name: "asdsa", age: 30 };
 console.log({ userData });
 
-const UPPER_CASE = 24;
-console.log(UPPER_CASE);
+userData.age = 30;
 
 function App() {
   return (
