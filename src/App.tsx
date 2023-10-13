@@ -5,11 +5,13 @@ interface User {
   age: number;
 }
 
-interface person {
+interface Person {
   name: string;
 }
 
-const person1: person = { name: "Mahesh" };
+const person1: Person = { name: "Mahesh" };
+
+console.log(person1);
 
 const userData: User = { name: "asdsa", age: 30 };
 console.log({ userData });
